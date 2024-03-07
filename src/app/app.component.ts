@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'p02';
+  data = '';
+  array = [];
+
+  onAdd() {
+    this.array.push(this.data);
+    this.data = '';
+  }
+
+  onInput(event: Event) {
+    this.data = (<HTMLInputElement>event.target).value;
+  }
+
 }
