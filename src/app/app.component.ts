@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,15 @@ export class AppComponent {
   data = '';
   array = [];
 
-  onAdd() {
-    this.array.push(this.data);
-    this.data = '';
+  constructor(private http: HttpClient) { }
+
+  onCreatePost(postData: { title: string; content: string }) {
+    this.http.post('https://ng-test-cb189-default-rtdb.europe-west1.firebasedatabase.app/posts.json', postData)
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
   }
+
 
   onInput(event: Event) {
     this.data = (<HTMLInputElement>event.target).value;
