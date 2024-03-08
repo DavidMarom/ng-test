@@ -1,3 +1,10 @@
 <h1>Page 01</h1>
 <button (click)="onCreatePost({title:'aa', content:'bb'} )">Add Data</button>
-
+<br /><br />
+<mat-slide-toggle [(ngModel)]="isChecked">Toggle me!</mat-slide-toggle>
+<br />
+<p>{{isChecked}}</p>
+<br /><br />
+<mat-card>
+  <mat-card-content>Simple card</mat-card-content>
+</mat-card>
